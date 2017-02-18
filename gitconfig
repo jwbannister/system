@@ -1,0 +1,5 @@
+[user]
+	name = John Bannister
+	email = jbannister@airsci.com
+[core]
+	editor = vim
