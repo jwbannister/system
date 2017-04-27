@@ -11,7 +11,7 @@ let g:colors_name="jbcolors"
 
 " Support for 256-color terminal
 if &t_Co > 255
-   hi Normal          ctermfg=252 ctermbg=016   cterm=none
+   hi Normal          ctermfg=252 ctermbg=16    cterm=none
    hi CursorLine                  ctermbg=234   cterm=none
    hi CursorLineNr    ctermfg=208               cterm=none
    hi Boolean         ctermfg=135
@@ -88,7 +88,7 @@ if &t_Co > 255
    hi Type            ctermfg=81                cterm=none
    hi Underlined      ctermfg=244               cterm=underline
 
-   hi VertSplit       ctermfg=40 ctermbg=232   cterm=bold
+   hi VertSplit       ctermfg=11  ctermbg=232   cterm=bold
    hi VisualNOS                   ctermbg=238
    hi Visual                      ctermbg=237   cterm=none
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
@@ -103,6 +103,3 @@ if &t_Co > 255
    hi SpecialKey      ctermfg=59
 end
 
-" Must be at the end, because of ctermbg=234 bug.
-" https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
-" set background=dark

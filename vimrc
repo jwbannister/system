@@ -1,19 +1,20 @@
-
 " Vundle requirements and plugin calls
 set nocompatible
-filetype off
+" filetype off
 set rtp+=~/lib/vim/bundle/Vundle.vim
 call vundle#begin('~/lib/vim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'jpalardy/vim-slime'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tmhedberg/SimpylFold'
+Plugin 'jalvesaq/Nvim-R'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'fholgado/minibufexpl.vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-fugitive'
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'tmhedberg/SimpylFold'
 " Plugin 'klen/python-mode'
-" Plugin 'jalvesaq/Nvim-R'
-" Plugin 'blueyed/vim-diminactive'
 call vundle#end()
 set rtp+=~/lib/vim
 
@@ -31,7 +32,9 @@ set buftype=""
 set encoding=utf-8
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent 
 set fileformat=unix
+set laststatus=2
 
+" highlight bad whitespace in python files
 au BufNewFile, BufRead *.py, *.pyw match BadWhitespace /\s\+$/
 
 " set line wrapping at 80 columns
@@ -56,22 +59,6 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
-" statusline settings
-set laststatus=2
-set statusline=
-set statusline+=%#MyColor2#
-set statusline+=%m
-set statusline+=%#MyColor1#
-set statusline+=\ \%F
-set statusline+=%#MyColor3#
-set statusline+=\ \%l/%L\L 
-set statusline+=%=
-set statusline+=%#MyColor2#
-set statusline+=%n
-highlight MyColor1 ctermfg=red ctermbg=black cterm=underline
-highlight MyColor2 ctermfg=013 ctermbg=black cterm=underline
-highlight MyColor3 ctermfg=lightblue ctermbg=black cterm=underline
-
 " enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -81,18 +68,30 @@ nnoremap <space> za
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 
-" Mini Buffer Explorer settings
-map <Leader>mbe :MBEOpen<cr>
-map <Leader>mbc :MBEClose<cr>
-map <Leader>mbt :MBEToggle<cr>
-let g:miniBufExplAutoStart = 1
-hi MBENormal ctermfg=007
-hi MBEChanged ctermfg=005
-hi MBEVisibleNormal ctermfg=003
-hi MBEVisibleChanged ctermfg=005
-hi MBEVisibleActiveNormal ctermfg=011
-hi MBEVisibleActiveChanged ctermfg=013
-let g:did_minibufexplorer_syntax_inits = 1
+" Nvim-R
+let g:R_in_buffer = 0
+let g:R_tmux_split = 1
+let g:R_assign = 0
+let g:R_nvimpager = "horizontal"
+let g:R_objbr_w = 30
+let g:R_objbr_place = "script,left"
+let g:R_objbr_opendf = 0
+let g:R_objbr_openlist = 0
+" Change Leader and LocalLeader keys:
+let maplocalleader = ","
+let mapleader = ";"
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts=1
+
+" netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner=0
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 50
 
 
 
