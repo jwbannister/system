@@ -8,13 +8,14 @@ Plugin 'jpalardy/vim-slime'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'klen/python-mode'
+Plugin 'Shougo/deoplete.nvim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-fugitive'
 " Plugin 'vim-syntastic/syntastic'
 " Plugin 'tmhedberg/SimpylFold'
-" Plugin 'klen/python-mode'
 call vundle#end()
 set rtp+=~/lib/vim
 
