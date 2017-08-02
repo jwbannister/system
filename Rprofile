@@ -1,5 +1,5 @@
 options(repos = c(CRAN = "https://cran.rstudio.com"))
-.libPaths("~/lib/R")
+.libPaths("~/.config/R")
 library(devtools)
 library(magrittr)
 library(colorout)

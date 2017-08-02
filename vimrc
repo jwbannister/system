@@ -1,24 +1,24 @@
-" Vundle requirements and plugin calls
 set nocompatible
-" filetype off
-set rtp+=~/lib/vim/bundle/Vundle.vim
-call vundle#begin('~/lib/vim/bundle')
+
+" Vundle requirements and plugin calls
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/bundle')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'jpalardy/vim-slime'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jalvesaq/Nvim-R'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'klen/python-mode'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-fugitive'
-" Plugin 'vim-syntastic/syntastic'
-" Plugin 'tmhedberg/SimpylFold'
+"Plugin 'ervandew/supertab'
+Plugin 'python-mode/python-mode'
+Plugin 'bfredl/nvim-ipy'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'tpope/vim-fugitive'
 call vundle#end()
-set rtp+=~/lib/vim
+set runtimepath+=~/.config/nvim
 
+set shell=/bin/bash
 set t_Co=256
 colorscheme jbcolors
 syntax enable
@@ -34,13 +34,18 @@ set encoding=utf-8
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent 
 set fileformat=unix
 set laststatus=2
+"set omnifunc=jedi#completions
+
+" folding settings
+set foldmethod=manual
+set foldnestmax=1
 
 " highlight bad whitespace in python files
 au BufNewFile, BufRead *.py, *.pyw match BadWhitespace /\s\+$/
 
 " set line wrapping at 80 columns
 set formatoptions+=w
-set tw=79
+set textwidth=79
 set colorcolumn=80
 highlight ColorColumn ctermbg=052
 
@@ -59,11 +64,6 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-
-" enable folding
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
 
 " vim-slime config
 let g:slime_target = "tmux"
@@ -94,5 +94,5 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 50
 
-
-
+" python mode settings
+let g:pymode_python = 'python3'
