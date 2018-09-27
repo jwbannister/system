@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'jpalardy/vim-slime'
+"Plugin 'epeli/slimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'vim-airline/vim-airline'
@@ -75,6 +76,12 @@ nnoremap <silent> ]B :blast<CR>
 " vim-slime config
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
+let g:slime_paste_file = "$HOME/.slime_paste"
+
+" slimux configuration
+"map <C-c><C-c> :SlimuxREPLSendLine<CR>
+"vmap <C-c><C-c> :SlimuxREPLSendSelection<CR>
+"map <C-c><C-v> :SlimuxREPLConfigure<CR>
 
 " Nvim-R
 let g:R_in_buffer = 0
