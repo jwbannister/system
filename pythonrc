@@ -1,0 +1,5 @@
+try:
+    import IPython
+    IPython.embed()
+except ImportError:
+    print ("IPython could not be imported.")

@@ -1,5 +1,5 @@
 source ~/.global_variables
-export PATH=/Users/john/sh:$PATH
+export PATH=/Users/john/sh:$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 source  ~/powerlevel9k/powerlevel9k.zsh-theme
