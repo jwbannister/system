@@ -1,5 +1,3 @@
-set nocompatible
-
 " Vundle requirements and plugin calls
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -19,7 +17,8 @@ Plugin 'AndrewRadev/linediff.vim'
 Plugin 'Konfekt/FastFold'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'nvie/vim-flake8.git'
 call vundle#end()
 
@@ -30,6 +29,7 @@ colorscheme monokai
 filetype plugin indent on
 set autochdir
 set number
+set hidden
 set showcmd
 set cursorline
 set hlsearch
@@ -74,6 +74,7 @@ nnoremap <silent> ]B :blast<CR>
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 let g:slime_paste_file = "$HOME/.slime_paste"
+let g:slime_preserve_curpos = 0
 
 " Nvim-R
 let g:R_in_buffer = 0
@@ -118,6 +119,7 @@ let g:jedi#popup_on_dot = 0
 
 " nerdtree mapping
 map <=> :NERDTreeToggle<CR>
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " git-gutter
 set updatetime=100

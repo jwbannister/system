@@ -1,9 +1,10 @@
 source ~/.global_variables
 export PATH=/Users/john/sh:$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH=/anaconda3/envs/owensReports/bin/python:$PATH
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 source  ~/powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda vcs dir)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda virtualenv vcs dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 alias ls='ls -G'
@@ -19,3 +20,5 @@ if { [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; } then
 else
     conda activate
 fi
+
+alias vim=nvim
