@@ -9,7 +9,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-vinegar'
 Plugin 'sickill/vim-monokai'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'vim-python/python-syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -17,17 +17,25 @@ Plugin 'AndrewRadev/linediff.vim'
 Plugin 'Konfekt/FastFold'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'majutsushi/tagbar'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'nvie/vim-flake8.git'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 call vundle#end()
 
-set shell=/bin/bash
+set shell=/bin/zsh
 set t_Co=256
 syntax enable
 colorscheme monokai
-filetype plugin indent on
-set autochdir
+"filetype plugin indent on
+
+" automatically update file if changed outside of vim
+set autoread
+au FocusGained,BufEnter * :checktime
+
+" automatically save on buffer or vim leave (avoid conflicts)
+" au FocusLost,WinLeave,BufLeave * :silent! w
+
 set number
 set hidden
 set showcmd
@@ -37,12 +45,17 @@ set showmatch
 set incsearch
 set buftype=""
 set encoding=utf-8
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent 
 set fileformat=unix
 set laststatus=2
+set tabstop=4 
+set shiftwidth=4 expandtab autoindent 
+filetype indent on
+
+" copy to system clipboard in OSX
+vmap 'y :w !pbcopy<CR><CR>
 
 " folding settings
-set foldmethod=manual
+" set foldmethod=manual
 set foldnestmax=1
 
 " highlight bad whitespace in python files
@@ -51,7 +64,7 @@ au BufNewFile, BufRead *.py, *.pyw match BadWhitespace /\s\+$/
 " set line wrapping at 100 columns and set line marking 80 columns
 set formatoptions+=w
 set textwidth=100
-set colorcolumn=80
+set colorcolumn=100
 highlight ColorColumn ctermbg=052
 
 " disable arrow keys to encourage hjkl movement
@@ -94,13 +107,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts=1
 let g:airline#extensions#branch#enabled = 1
 
-" netrw
-let g:netrw_liststyle = 3
-let g:netrw_banner=0
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
 " python mode settings
 let pymode=1
 let g:pymode_python = 'python3'
@@ -109,17 +115,11 @@ let g:pymode_lint=0
 " python-syntax highlighting
 let g:python_highlight_all = 1
 
-" jedi
-" use j & k to scroll through autocomplete popups 
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
-let g:jedi#show_call_signatures = 2
-let g:jedi#auto_close_doc = 0
-let g:jedi#popup_on_dot = 0
-
 " nerdtree mapping
-map <=> :NERDTreeToggle<CR>
-let g:NERDTreeNodeDelimiter = "\u00a0"
+nmap <C-n> :NERDTreeToggle<CR>
+let NERDTreeNodeDelimiter = "\u00a0"
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
 
 " git-gutter
 set updatetime=100
